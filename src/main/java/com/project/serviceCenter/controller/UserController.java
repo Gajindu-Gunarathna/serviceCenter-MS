@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
     @Autowired
     private UserService userServie;
@@ -65,6 +65,19 @@ public class UserController {
     public User deleteUserById(@PathVariable int id){
         return userServie.deleteUserById(id);
     }
+
+    // 🔄 Used in UserProfile.js to fetch the logged-in user's details by email
+    @GetMapping("/users/email/{email}")
+    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
+        User user = userServie.getUserByEmail(email);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+
 
 
 
