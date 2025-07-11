@@ -63,7 +63,7 @@ public class UserService {
         }
     }
 
-    // 🔄 Called by getUserByEmail() in UserController for UserProfile.js (fetch user by email)
+    // Called by getUserByEmail() in UserController for UserProfile.js (fetch user by email)
     public User getUserByEmail(String email) {
         return userRepo.findByEmail(email);
     }

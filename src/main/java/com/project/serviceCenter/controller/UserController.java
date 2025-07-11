@@ -66,7 +66,7 @@ public class UserController {
         return userServie.deleteUserById(id);
     }
 
-    // 🔄 Used in UserProfile.js to fetch the logged-in user's details by email
+    // Used in UserProfile.js to fetch the logged-in user's details by email
     @GetMapping("/users/email/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
         User user = userServie.getUserByEmail(email);
